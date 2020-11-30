@@ -4,7 +4,7 @@
 The directory represents a project which has been started during [PhotoHack TikTok (March, 2019)](https://hacktiktok.photolab.me/). Since the event project evolve from tiny Flask app to the Django-backend and ReactApp-frontend as a one app with neural model for searching similar images through our parsed image db and other features, e.g. index search optimizations, calculation of offline, online metrics for analyzing and validation.
 
 In two words, there are two apps:
-1. Django app ([hinzu-django](https://hinzu.online/hinzu-django/)) with made frontended django views and the backend as it is.
+1. Django app ([hinzu-django](https://hinzu.online/hinzu-django/)) with maden frontended django views and the backend as it is.
 2. The next one (frontend for the previous) is ReactApp ([hinzu.online](https://hinzu.online/)) which processing with backend Django side, i.e. django-rest-framework.
 
 In addition, we save user appreciations as binary mark for resulted concated image ( user passed img with picked up similar image from film-image-base). So, we leave the possibility to improve our neural model.
