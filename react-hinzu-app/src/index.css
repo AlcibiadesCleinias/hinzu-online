@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'Girloub';
+  src: local('Girloub'), url(./fonts/Gilroy-Black.woff) format('woff');
+  }
+@font-face {
+  font-family: 'Girlous';
+  src: local('Girlous'), url(./fonts/Gilroy-SemiBold.woff) format('woff');
+  }

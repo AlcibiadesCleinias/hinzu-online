@@ -1,0 +1,66 @@
+{% extends "web_app/base_template_page.html" %}
+
+{% block content %}
+    <header>
+      <div class="container">
+        <div class"row">
+          <div class="col text-center">
+               <h1>Из какого ты фильма?</h1>
+               <p>Загружай свои фото в разных ситуациях</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <div class="container">
+        <div class"row">
+          <div class='col text-center'>
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+            <main class="main_full">
+                <form action="{% url 'web_app:upload_file' %}" method=post enctype=multipart/form-data>
+                  {% csrf_token %}
+                  <div class="panel">
+                    <div class="button_outer">
+                      <div class="btn_upload btn-user">
+                        <input type="file" id="upload_file" name="file" onchange="readFile(this.value)">
+                        Выбрать Фото
+                      </div>
+                      <div class="processing_bar"></div>
+                      <div class="success_box"></div>
+                    </div>
+                  </div>
+                  <div class="error_msg"></div>
+                  <div class="uploaded_file_view" id="uploaded_view">
+                    <img id="result" class="result" />
+                    <span class="file_remove">X</span>
+                  </div>
+
+                  <div id="push4magic" class="btn-group d-none" >
+                    <button type="button submit" class="btn btn-primary btn-lg btn-user" >Create baraban   </button>
+                  </div>
+
+                </form>
+            </main>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer" class="footer">
+      <div class="container">
+        <div class='row'>
+          <div class='col-12 d-none d-sm-block text-center'>
+            <h2>HINZU</h2>
+            <p class=card-text style='margin:-30px; padding: 0;'><a href="mailto:kadochnikova@bk.ru?subject=Вопрос по Hinzu.online">kadochnikova@bk.ru</a><p>
+          </div>
+        </div>
+        <div class='row'>
+          <div class="col-12 d-block d-sm-none text-center">
+            <h3>HINZU</h3>
+            <p class=card-text style='margin:0; padding: 0;'><a href="mailto:kadochnikova@bk.ru?subject=Вопрос по Hinzu.online">kadochnikova@bk.ru</a><p>
+          </div>
+        </div>
+      </div>
+    </footer>
+{% endblock %}

@@ -1,0 +1,152 @@
+{% extends "web_app/base_template_page.html" %}
+
+{% block content %}
+
+  <header>
+    <div class="container">
+      <div class"row">
+        <div class='col text-center'>
+           <h1>Из какого ты
+            {% if domain == 'memes' %}
+            мема?
+            {% elif domain == 'pinterest' %}
+            мемного фильма (pinterest)?
+            {% elif domain == 'movies' %}
+            фильма?
+            {% endif %}
+           </h1>
+           <p>Загружай свои фото в разных ситуациях</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-4 text-center">
+
+          <div class="card-group">
+            <div class="card">
+              <div class="thumbnail">
+                <a href="{% url 'web_app:fetchImage' path2combined_crypted %}" target='_blank'>
+                  {% if image_mode == 'width_mode' %}
+                  <img src="{% url 'web_app:fetchImage' path2combined_crypted %}" alt="Lights" style="width: 100%;">
+                  {% else %}
+                  <img src="{% url 'web_app:fetchImage' path2combined_crypted %}" alt="Lights" style="height:550px">
+                  {% endif %}
+                </a>
+              </div>
+              <div class="card-block">
+                <p></p>
+                <h4 class="card-title">Хм-м... из какого же это {% if domain == 'memes' %}
+                мема?
+                {% elif domain == 'pinterest' %}
+                мемного фильма (pinterest)?
+                {% elif domain == 'movies' %}
+                фильма?
+                {% endif %}</h4>
+                <p class="card-text">
+                  {% if movie_name %}
+                  Hinzu говорит, это из <a href="http://www.google.com/search?q=film+{{movie_name_4search}}" target="_blank">&laquo;{{ movie_name | title}}&raquo;</a>
+                  {% else %}
+                  Эту картинку подобрал для Вас HINZU
+                  {% endif %}
+                </p>
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class='col text-center top-buffer'>
+          <button type="button" class="btn btn-success liker" rate="5" data-toggle="tooltip" data-placement="top" title="Hinzu подобрал то, что надо!"><i class="fas fa-heart"></i></button>
+          <button type="button" class="btn btn-danger liker" rate="0" data-toggle="tooltip" data-placement="bottom" title="Что-то явно не то, - на пересдачу!"><i id=like1 class="fas fa-times"></i></button>
+        </div>
+      </div>
+
+      <div id="m_success" class="d-none row justify-content-center top-buffer">
+        <div class='col col-12 col-md-4 text-center'>
+          <div class="alert alert-success alert-dismissible fade show">
+          <strong>Yonked!</strong> Hinzu получил оценку и скоро дообучится! ;)
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="m_danger" class="d-none row justify-content-center top-buffer">
+        <div class='col col-12 col-md-4 text-center'>
+          <div class="alert alert-danger alert-dismissible fade show">
+          <strong>Not yonked!</strong> Что-то, не что-то );
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class='col text-center top-buffer'>
+          <button onclick="location.href='{% url 'web_app:upload_file' %}';" class="btn btn-primary btn-lg btn-user">Попробовать еще (;</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 text-center top-buffer">
+          <a class="scl-btn scl-crcl shadow fas fa-download" href="{% url 'web_app:fetchImage' path2combined_crypted %}" download></a>
+          <a class="scl-btn scl-crcl shadow fab fa-telegram-plane" href="https://telegram.me/share/url?url=https%3A%2F%2Fhinzu.online%2Fapi%2Ffetch-image%2F{% url 'web_app:fetchImage' path2combined_crypted %}&text=Hinzu%2C%20Make%20the%20Magic&utm_source=share2" target="_blank"></a>
+          <a  class="scl-btn scl-crcl shadow fab fa-facebook-f" href="https://www.facebook.com/sharer.php?src=sp&u=https%3A%2F%2Fhinzu.online%2Fapi%2Ffetch-image%2F{% url 'web_app:fetchImage' path2combined_crypted %}&title=Hinzu%2C%20Make%20the%20Magic&utm_source=share2" target="_blank"></a>
+          <a  class="scl-btn scl-crcl shadow fab fa-twitter" href="https://twitter.com/intent/tweet?text=Hinzu%2C%20Make%20the%20Magic&url=https%3A%2F%2Fhinzu.online%2Fapi%2Ffetch-image%2F{% url 'web_app:fetchImage' path2combined_crypted %}&utm_source=share2" target="_blank"></a>
+          <a  class="scl-btn scl-crcl shadow fab fa-linkedin-in" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fhinzu.online%2Fapi%2Ffetch-image%2F{% url 'web_app:fetchImage' path2combined_crypted %}&title=Hinzu%2C%20Make%20the%20Magic&utm_source=share2" target="_blank"></a>
+          <a  class="scl-btn scl-crcl shadow fab fa-whatsapp" href="https://api.whatsapp.com/send?text=Hinzu%2C%20Make%20the%20Magic%20https%3A%2F%2Fhinzu.online%2Fapi%2Ffetch-image%2F{% url 'web_app:fetchImage' path2combined_crypted %}&utm_source=share2" target="_blank"></a>
+          <a  class="scl-btn scl-crcl shadow fab fa-reddit-alien" href="https://www.reddit.com/submit?url=https%3A%2F%2Fhinzu.online%2Fapi%2Ffetch-image%2F{% url 'web_app:fetchImage' path2combined_crypted %}&title=Hinzu%2C%20Make%20the%20Magic&utm_source=share2" target="_blank"></a>
+          <a  class="scl-btn scl-crcl shadow fab fa-tumblr" href="https://www.tumblr.com/share/link?url=https%3A%2F%2Fhinzu.online%2Fapi%2Ffetch-image%2F{% url 'web_app:fetchImage' path2combined_crypted %}&utm_source=share2" target="_blank"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class='row'>
+        <div class='col-12 d-none d-sm-block text-center'>
+          <h2>HINZU</h2>
+          <p class=card-text style='margin:-30px; padding: 0;'><a href="mailto:kadochnikova@bk.ru?subject=Вопрос по Hinzu.online">kadochnikova@bk.ru</a><p>
+        </div>
+      </div>
+      <div class='row'>
+        <div class="col-12 d-block d-sm-none text-center">
+          <h3>HINZU</h3>
+          <p class=card-text style='margin:0; padding: 0;'><a href="mailto:kadochnikova@bk.ru?subject=Вопрос по Hinzu.online">kadochnikova@bk.ru</a><p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script>
+$('.liker').click(function(){
+      $.ajax({
+               type: "POST",
+               url: "{% url 'web_app:addlike' %}",
+               data: {'rate': $(this).attr('rate'), 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+               dataType: "json",
+               success: function(response) {
+                      // $("#m_success").html(response.message);
+                      $("#m_success").removeClass("d-none");
+                },
+                error: function(rs, e) {
+                       // alert(rs.responseText);
+                       $("#m_danger").removeClass("d-none");
+                }
+          });
+    })
+</script>
+
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+{% endblock %}

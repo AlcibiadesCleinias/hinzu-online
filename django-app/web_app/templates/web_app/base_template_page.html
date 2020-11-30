@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html lang="ru">
+<html>
+  <head>
+    <meta charset="utf-8">
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Hinzu, Make the Magic</title>
+    {% endif %}
+    {% if description %}
+    <meta name="description" content="{{ description }}">
+    {% else %}
+    <meta name="description" content="Загружай свою фотографию, получай похожую фотографию знаменитостей, сцен из фильмов и даже мемов <*|*>">
+    {% endif %}
+    <link rel="shortcut icon" href="{% static 'web_app/images/favicon.ico' %}?u={{last_updated}}">
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <!-- <meta name="verify-admitad" content="fcc3e7c85b" /> -->
+
+    <!-- viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- user css -->
+    <link rel="stylesheet" href="{% static 'web_app/css/style.css' %}?u={{last_updated}}">
+    <!-- fonts for smiles -->
+    <link rel="stylesheet" href="{% static 'web_app/css/all.css' %}?u={{last_updated}}">
+
+    <style>
+      @font-face {
+        font-family: 'Girloub';
+        src: url("{% static 'web_app/webfonts/Gilroy-Black.woff' %}");
+        }
+      @font-face {
+        font-family: 'Gilroys';
+        src: url("{% static 'web_app/webfonts/Gilroy-SemiBold.woff' %}");
+        }
+      @font-face {
+        font-family: 'woff';
+        src: url("{% static 'web_app/webfonts/fa-solid-900.woff' %}");
+        }
+      @font-face {
+        font-family: 'woff2';
+        src: url("{% static 'web_app/webfonts/fa-solid-900.woff2' %}");
+        }
+    </style>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163928341-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-163928341-1');
+    </script>
+
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '651384928757656');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=651384928757656&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+
+    <!-- for ajax scripts-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+  </head>
+  <body>
+    {% block content %}{% endblock %}
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" ></script>
+    <!-- for correct image preview-->
+    <script type="text/javascript" src="{% static 'web_app/js/load-image.all.min.js' %}?u={{last_updated}}"></script>
+    <script src="{% static 'web_app/js/load-image.js' %}?u={{last_updated}}"></script>
+
+  </body>
+</html>

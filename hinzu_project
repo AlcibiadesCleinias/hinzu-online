@@ -1,0 +1,66 @@
+server {
+    server_name hinzu.online hinzu.ru;
+    client_max_body_size 64m;
+
+    ################
+    # for reactApp #
+    ################
+    root /home/ivan/Hinzu/react-hinzu-app/build;
+    index index.html index.htm;
+
+
+    location / {
+      try_files $uri /index.html =404;
+    }
+
+    location /hinzu-django/ {
+        include proxy_params;
+        proxy_set_header   X-Real-IP            $remote_addr;
+        proxy_set_header   X-Forwarded-For      $proxy_add_x_forwarded_for;
+        proxy_headers_hash_max_size 512;
+        proxy_headers_hash_bucket_size 128;
+        proxy_pass http://127.0.0.1:8000; #http://unix:/home/ivan/Hinzu/backend/hinzu_project.sock;
+    }
+
+    location /admin {
+        proxy_pass http://127.0.0.1:8000/admin;
+    }
+
+    location /staticfiles/ {
+        alias /home/ivan/Hinzu/django-app/staticfiles/;
+    }
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/hinzu.online/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/hinzu.online/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+
+
+
+}
+server {
+    if ($host = hinzu.online) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen 80;
+    server_name hinzu.online;
+    return 404; # managed by Certbot
+
+
+}
+server {
+    if ($host = hinzu.ru) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot & Academy
+
+
+    listen 80;
+    server_name hinzu.ru;
+    return 404; # managed by Certbot & Academy
+
+
+}

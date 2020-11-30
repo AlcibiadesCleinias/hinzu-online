@@ -1,0 +1,45 @@
+{% extends "web_app/base_template_page.html" %}
+
+{% block content %}
+  <section>
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-4 text-center" onload="redirect()">
+
+          <div id="notfound">
+            <div class="notfound">
+              <div class="notfound-404">
+                <h1>4<span></span>4</h1>
+              </div>
+              <h2>Оо-о! Страница не найдена</h2>
+              <p>К сожалению <b>Hinzu</b> не может найти запрашиваемую страницу, возможно, она была удалена? или ее еще не создали... или у вас нет прав (;</p>
+              <button onclick="location.href='{% url 'web_app:upload_file' %}';" class="btn btn-primary btn-lg btn-user">Дайте прав!</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class='row'>
+        <div class='col-12 d-none d-sm-block text-center'>
+          <h2>HINZU</h2>
+          <p class=card-text style='margin:-30px; padding: 0;'><a href="mailto:kadochnikova@bk.ru?subject=Вопрос по Hinzu.online">kadochnikova@bk.ru</a><p>
+        </div>
+      </div>
+      <div class='row'>
+        <div class="col-12 d-block d-sm-none text-center">
+          <h3>HINZU</h3>
+          <p class=card-text style='margin:0; padding: 0;'><a href="mailto:kadochnikova@bk.ru?subject=Вопрос по Hinzu.online">kadochnikova@bk.ru</a><p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+{% endblock %}

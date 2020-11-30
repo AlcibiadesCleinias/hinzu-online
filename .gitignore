@@ -1,0 +1,24 @@
+*.DS_Store
+*.npy
+*.ipynb_checkpoints
+#*.jpg
+#*.JPG
+#*.jpeg
+#*.JPEG
+#*.png
+#*.PNG
+*__pycache__*
+*.log
+#*.json
+backend
+django-app/web_app/data
+django-app/web_app/saved_reports/
+
+# images for html rendering
+!django-app/web_app/static/web_app/images/*
+
+# django autocreated files
+*/staticfiles/
+django-app/web_app/upload/
+
+.env.prod*

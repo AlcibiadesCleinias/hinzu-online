@@ -1,0 +1,46 @@
+# pull official base image
+FROM python:3.6
+
+# create directory for the app user
+RUN mkdir -p /home/app
+
+# create the app user
+RUN groupadd app && useradd -m app -g app
+
+# create the appropriate directories
+ENV HOME=/home/app
+ENV APP_HOME=/home/app/web
+RUN mkdir $APP_HOME
+
+RUN mkdir $APP_HOME/staticfiles
+WORKDIR $APP_HOME
+
+# set environment variables
+# no writing pyc files
+# prevents Python from buffering stdout and stderr
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# install psycopg2 dependencies
+RUN apt-get update \
+     && apt-get -y install gcc libpq-dev python3-dev netcat
+
+# install dependencies
+COPY ./requirements.txt $APP_HOME
+RUN pip install --default-timeout=2000 -r requirements.txt
+RUN pip install hnswlib==0.3.4
+
+# copy entrypoint-prod.sh
+COPY ./entrypoint.prod.sh $APP_HOME
+
+# copy project
+COPY . $APP_HOME
+
+# chown all the files to the app user
+RUN chown -R app:app $HOME
+
+# change to the app user
+USER app
+
+# run entrypoint.prod.sh
+ENTRYPOINT ["/home/app/web/entrypoint.prod.sh"]
