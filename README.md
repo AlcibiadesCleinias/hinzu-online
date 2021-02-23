@@ -1,7 +1,7 @@
 # Hinzu <#-#>
 ---
 
-The directory represents a project which has been started during [PhotoHack TikTok (March, 2019)](https://hacktiktok.photolab.me/). Since the event project evolve from tiny Flask app to the Django-backend and ReactApp-frontend as a one app with neural model for searching similar images through our parsed image db and other features, e.g. index search optimizations, calculation of offline, online metrics for analyzing and validation.
+The directory represents the project which has been started during [PhotoHack TikTok (March, 2019)](https://hacktiktok.photolab.me/). Since the event project evolves from a tiny Flask app to the Django-backend and ReactApp-frontend as one app with a neural model for searching similar images through our parsed-downloaded image db and other features, e.g. index search optimizations, calculation of offline, online metrics for analyzing and validation.
 
 In two words, there are two apps:
 1. Django app ([hinzu-django](https://hinzu.online/hinzu-django/)) with maden frontended django views and the backend as it is.
