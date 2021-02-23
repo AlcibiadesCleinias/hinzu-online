@@ -5,7 +5,7 @@ The directory represents the project which has been started during [PhotoHack Ti
 
 In two words, there are two apps:
 1. Django app ([hinzu-django](https://hinzu.online/hinzu-django/)) with maden frontended django views and the backend as it is.
-2. The next one (frontend for the previous) is ReactApp ([hinzu.online](https://hinzu.online/)) which processing with backend Django side, i.e. django-rest-framework.
+2. The next one (frontend for the previous) is ReactApp ([hinzu.ru](https://hinzu.ru/)) which processing with backend Django side, i.e. django-rest-framework.
 
 In addition, we save user appreciations as binary mark for resulted concated image ( user passed img with picked up similar image from film-image-base). So, we leave the possibility to improve our neural model.
 
