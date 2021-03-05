@@ -1,13 +1,16 @@
 # Hinzu <#-#>
 ---
 
-The directory represents the project which has been started during [PhotoHack TikTok (March, 2019)](https://hacktiktok.photolab.me/). Since the event project evolves from a tiny Flask app to the Django-backend and ReactApp-frontend as one app with a neural model for searching similar images through our parsed-downloaded image db and other features, e.g. index search optimizations, calculation of offline, online metrics for analyzing and validation.
+The directory represents the project which has been started during [PhotoHack TikTok (March 2019)](https://hacktiktok.photolab.me/). Since the event project evolves from a tiny Flask app to the Django-backend and ReactApp-frontend as one app with a neural model for searching similar images through our parsed-downloaded image db and other features, e.g. index search optimizations, calculation of offline, online metrics for analyzing and validation.
 
-In two words, there are two apps:
-1. Django app ([hinzu-django](https://hinzu.online/hinzu-django/)) with maden frontended django views and the backend as it is.
-2. The next one (frontend for the previous) is ReactApp ([hinzu.ru](https://hinzu.ru/)) which processing with backend Django side, i.e. django-rest-framework.
+In two words, there are two fully similar apps:
+1. Django app ([hinzu-django](https://hinzu.online/hinzu-django/)) with templated views.
+2. The next one (completed frontend for the previous) is ReactApp ([hinzu.ru](https://hinzu.ru/)) which processing with the backend Django side, i.e. Django-Rest-Framework.
 
-In addition, we save user appreciations as binary mark for resulted concated image ( user passed img with picked up similar image from film-image-base). So, we leave the possibility to improve our neural model.
+In addition, we save user appreciations as binary marks for resulted in a concatenated image (a user passed img with picked up the similar image from the film-image-base). So, we leave the possibility to improve our neural model.
+
+*Note*
+> Structure of the `web_app/views.py` file is a bit odd. The reasons are the following: we have created the app with views on Flask firstly then we decided to migrate in a "one day" to Django and after that, in one day we created the reactApp as a frontend side. Thus, in `views.py` there are some active rudiments of Django's templated views and in Django RFW classes there are some odd session checks from the Flask app.
 
 ## Briefly
 
